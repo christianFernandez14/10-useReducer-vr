@@ -1,7 +1,6 @@
 import React, { useEffect, useReducer } from 'react'
 import juegoReducer from '../reducer/juegoReducer'
 
-// Puedes probar inicianizandola dentro del componente a ver cual es el resultado
 const init = () =>{
   return JSON.parse(localStorage.getItem('juegos')) || []
 }
@@ -23,22 +22,26 @@ const MisJuegos = () => {
       descripcion: e.target.descripcion.value
     }
 
-    // Estamos viendo si toma los datos del form.
-    // console.log(juego)
-
-    // Comenzamos a trabajar con el la accion
     const accion = {
       type: "crear",
       payload: juego
     }
 
-    // Comenzamos a trabajar con la funcion modificadora que es el dispatch, en el caso del reducer (actulizo mi estado)
     dispatch(accion)
 
-    // Verificamos si esta guardando en el localStorage
-    console.log(juegos)
-
   }
+
+  // Creamos la funcion que borrara acada elemento.
+  const borrarJuego = id =>{
+    const accion = {
+      type: "borrar",
+      payload: id
+    }
+
+    dispatch(accion)
+  }
+
+
   return (
     <div>
       <h1>Estos son mis videojuegos</h1>
@@ -50,7 +53,9 @@ const MisJuegos = () => {
           juegos.map(juego =>(
             <li key={juego.id}>
               {juego.titulo}: {juego.descripcion}
-              &nbsp; <button>X</button>
+
+              {/* Vamos a trabajar con el evento onClick para despachar otra accion */}
+              &nbsp; <button onClick={e => borrarJuego(juego.id)}>X</button>
             </li>
           ))
         }

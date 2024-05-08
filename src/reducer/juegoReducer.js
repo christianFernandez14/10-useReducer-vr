@@ -6,6 +6,10 @@ const juegoReducer = (state = [], action) => {
     case "crear":
 
       return [...state, action.payload]
+     
+    case "borrar":
+
+    return state.filter(juego => juego.id !== action.payload)
 
     default:
       return state
