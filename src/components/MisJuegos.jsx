@@ -1,6 +1,19 @@
 import React from 'react'
 
 const MisJuegos = () => {
+
+  const conserguirDatosForm = e =>{
+    e.preventDefault()
+
+    let juego = {
+      id: new Date().getTime(),
+      titulo: e.target.titulo.value,
+      descripcion: e.target.descripcion.value
+    }
+
+    console.log(juego)
+
+  }
   return (
     <div>
       <h1>Estos son mis videojuegos</h1>
@@ -15,7 +28,7 @@ const MisJuegos = () => {
 
       <h3>Agregar Juego</h3>
 
-      <form>
+      <form onSubmit={conserguirDatosForm}>
         <input
           name='titulo'
           type="text"
