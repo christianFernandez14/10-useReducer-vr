@@ -1,10 +1,11 @@
+import MisJuegos from "./components/MisJuegos"
 
 
 const App = () => {
 
   return (
     <div>
-      <h1>From App Component</h1>
+      <MisJuegos />
     </div>
   )
 }

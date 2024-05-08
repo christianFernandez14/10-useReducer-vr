@@ -1,0 +1,9 @@
+form {
+  margin-bottom: 50px;
+}
+
+form *{
+  display: block;
+  margin: 15px auto;
+  padding: 12px;
+}
