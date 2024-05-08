@@ -6,3 +6,5 @@ Trabajando con el useReducer
 4.- Y la peculiaridad es que el reducer siempre me devolvera un estado 
 5.- Recuerda que es un gestionador (si es que existe esa palabra), de los estados (state) de tu proyecto
 6.- Estara siempre en una carpeta aparte de los components, que se llamara "reducer"
+
+las funciones que se crean dentro del reducer, tendran dos parametros, el estado y las acciones

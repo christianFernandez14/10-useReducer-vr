@@ -1,6 +1,20 @@
 import React from 'react'
+import juegoReducer from '../reducer/juegoReducer'
+import { useReducer } from 'react'
+import { useEffect } from 'react'
+
+// Puedes probar declarandola dentro del componente a ver cual es el resultado
+const init = () =>{
+  return JSON.parse(localStorage.getItem('juegos')) || []
+}
 
 const MisJuegos = () => {
+
+  const [juegos, dispatch] = useReducer(juegoReducer, [], init)
+
+  useEffect(()=>{
+    localStorage.setItem('juegos', JSON.stringify(juegos))
+  }, [juegos])
 
   const conserguirDatosForm = e =>{
     e.preventDefault()
